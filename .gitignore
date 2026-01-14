@@ -6,6 +6,11 @@
 # Ignorar TODO por defecto
 *
 
+# Incluir archivos raíz del repo PRIMERO
+!.gitignore
+!README.md
+!LICENSE
+
 # EXCEPTO estas carpetas de herramientas:
 !Bloquear Internet FC26/
 !Bloquear Internet FC26/**
@@ -24,8 +29,3 @@ Backups Guardados/
 .DS_Store
 Thumbs.db
 desktop.ini
-
-# Incluir archivos raíz del repo
-!.gitignore
-!README.md
-!LICENSE
