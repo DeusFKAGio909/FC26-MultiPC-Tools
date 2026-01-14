@@ -1,0 +1,31 @@
+# ============================================================
+# FC26 MultiPC Tools - .gitignore
+# ============================================================
+# Solo incluir las herramientas, ignorar todo lo demás
+
+# Ignorar TODO por defecto
+*
+
+# EXCEPTO estas carpetas de herramientas:
+!Bloquear Internet FC26/
+!Bloquear Internet FC26/**
+!Gestor Backups/
+!Gestor Backups/**
+
+# Pero ignorar archivos temporales y de configuración local
+Gestor Backups/*.json
+Gestor Backups/*.txt
+Gestor Backups/pending_files.tmp
+
+# Ignorar backups (son datos locales de cada PC)
+Backups Guardados/
+
+# Archivos del sistema
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Incluir archivos raíz del repo
+!.gitignore
+!README.md
+!LICENSE

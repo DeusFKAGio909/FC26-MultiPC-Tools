@@ -1,0 +1,236 @@
+══════════════════════════════════════════════════════════════════════
+   BLOQUEADOR DE INTERNET PARA FC26
+══════════════════════════════════════════════════════════════════════
+
+Este conjunto de scripts te permite bloquear completamente las 
+conexiones de internet de FC26, evitando que el juego intente 
+conectarse a los servidores de EA o pida conexion a internet.
+
+══════════════════════════════════════════════════════════════════════
+   ARCHIVOS INCLUIDOS
+══════════════════════════════════════════════════════════════════════
+
+METODO 1 - FIREWALL (RECOMENDADO):
+  - Bloquear_Internet_FC26.bat    -> Bloquea FC26
+  - Bloquear_Internet_FC26.ps1    -> Script PowerShell (alternativa)
+  - Desbloquear_Internet_FC26.bat -> Quita el bloqueo
+  - Desbloquear_Internet_FC26.ps1 -> Script PowerShell (alternativa)
+
+METODO 2 - ARCHIVO HOSTS:
+  - Bloquear_via_Hosts.bat        -> Bloquea dominios de EA
+  - Desbloquear_via_Hosts.bat     -> Quita el bloqueo del hosts
+
+HERRAMIENTAS ADICIONALES:
+  - Backup_Guardados_FC26.bat     -> Crea/restaura backups del Modo Carrera
+
+══════════════════════════════════════════════════════════════════════
+   METODO 1: BLOQUEO POR FIREWALL (RECOMENDADO)
+══════════════════════════════════════════════════════════════════════
+
+Este metodo crea reglas en el Firewall de Windows para bloquear
+TODAS las conexiones de red de FC26. Es el metodo mas efectivo.
+
+PARA BLOQUEAR:
+--------------
+1. Haz doble clic en "Bloquear_Internet_FC26.bat"
+2. Si aparece una ventana de permisos (UAC), acepta
+3. El script buscara automaticamente FC26.exe en tu PC
+   - Busca en EA App, Steam, Epic Games y otras ubicaciones
+   - Tambien bloquea el Anti-Cheat si lo encuentra
+4. Si no lo encuentra, te pedira la ruta manualmente
+5. Una vez completado, FC26 estara bloqueado
+
+PARA DESBLOQUEAR:
+-----------------
+1. Haz doble clic en "Desbloquear_Internet_FC26.bat"
+2. Acepta los permisos de administrador
+3. El script eliminara todas las reglas de bloqueo
+4. FC26 podra conectarse a internet normalmente
+
+══════════════════════════════════════════════════════════════════════
+   METODO 2: BLOQUEO POR ARCHIVO HOSTS
+══════════════════════════════════════════════════════════════════════
+
+Este metodo modifica el archivo hosts de Windows para redirigir
+los dominios de EA a localhost (127.0.0.1). Es mas granular pero
+menos completo que el metodo del firewall.
+
+PARA BLOQUEAR:
+--------------
+1. Haz doble clic en "Bloquear_via_Hosts.bat"
+2. Acepta los permisos de administrador
+3. El script:
+   - Crea un backup del archivo hosts original
+   - Agrega entradas para bloquear dominios de EA
+   - Limpia la cache de DNS
+
+PARA DESBLOQUEAR:
+-----------------
+OPCION A - Usar el script dedicado:
+1. Haz doble clic en "Desbloquear_via_Hosts.bat"
+2. Acepta los permisos de administrador
+3. El script eliminara las entradas de bloqueo
+
+OPCION B - Desde Bloquear_via_Hosts.bat:
+1. Ejecuta "Bloquear_via_Hosts.bat"
+2. Si detecta que ya hay bloqueo, te preguntara si deseas quitarlo
+3. Selecciona "1" para quitar el bloqueo
+
+══════════════════════════════════════════════════════════════════════
+   COMPARACION DE METODOS
+══════════════════════════════════════════════════════════════════════
+
+FIREWALL (Recomendado):
+  [+] Bloquea TODAS las conexiones de red de FC26
+  [+] Mas simple y directo
+  [+] Automaticamente busca y bloquea multiples ejecutables
+  [+] Tambien bloquea el Anti-Cheat
+  [+] Facil de activar/desactivar
+  [+] No afecta otras aplicaciones
+
+ARCHIVO HOSTS:
+  [+] Bloquea solo dominios especificos de EA
+  [+] Mas granular (puedes permitir otras conexiones)
+  [+] Util si FC26 necesita conexiones locales
+  [-] Menos completo (podria haber dominios no listados)
+  [-] Afecta a TODAS las aplicaciones que usen esos dominios
+
+RECOMENDACION: Usa el metodo FIREWALL a menos que tengas una
+razon especifica para usar el metodo HOSTS.
+
+══════════════════════════════════════════════════════════════════════
+   IMPORTANTE
+══════════════════════════════════════════════════════════════════════
+
+- Los scripts solicitan permisos de Administrador automaticamente
+- El bloqueo persiste incluso despues de reiniciar la PC
+- Puedes bloquear y desbloquear cuando quieras
+- El juego funcionara en modo completamente offline
+- No podras acceder a Ultimate Team, transferencias online, etc.
+- El Modo Carrera y otros modos offline funcionaran normalmente
+
+══════════════════════════════════════════════════════════════════════
+   SOLUCION DE PROBLEMAS
+══════════════════════════════════════════════════════════════════════
+
+PROBLEMA: El script no encuentra FC26.exe
+SOLUCION:
+1. Busca manualmente el archivo FC26.exe en tu PC
+2. Copia la ruta completa
+   Ejemplo: C:\Program Files\EA Games\EA SPORTS FC 26\FC26.exe
+3. Cuando el script te pregunte, pega esa ruta
+
+PROBLEMA: PowerShell no permite ejecutar scripts
+SOLUCION:
+1. Los archivos .bat ya incluyen la configuracion necesaria
+2. Si aun asi falla, abre PowerShell como Administrador y ejecuta:
+   Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+3. Escribe "S" y presiona Enter cuando te pregunte
+
+PROBLEMA: Quiero verificar si el bloqueo esta activo
+SOLUCION FIREWALL:
+1. Abre "Firewall de Windows Defender con seguridad avanzada"
+2. Ve a "Reglas de salida"
+3. Busca reglas que empiecen con "Bloquear FC26 Internet"
+
+SOLUCION HOSTS:
+1. Abre el archivo: C:\Windows\System32\drivers\etc\hosts
+2. Busca lineas que contengan "# === BLOQUEO FC26 ==="
+
+PROBLEMA: El archivo hosts quedo corrupto
+SOLUCION:
+1. El script crea un backup automatico
+2. Busca el archivo: C:\Windows\System32\drivers\etc\hosts.fc26_backup
+3. Copia ese archivo y renombralo a "hosts" (sin extension)
+4. Reemplaza el archivo hosts corrupto
+
+══════════════════════════════════════════════════════════════════════
+   BLOQUEO MANUAL (ALTERNATIVA)
+══════════════════════════════════════════════════════════════════════
+
+Si prefieres hacerlo manualmente sin scripts:
+
+VIA FIREWALL:
+1. Presiona Win+R y escribe: wf.msc
+2. Haz clic en "Reglas de salida" -> "Nueva regla..."
+3. Selecciona "Programa" -> Siguiente
+4. Selecciona "Esta ruta del programa" y busca FC26.exe
+5. Selecciona "Bloquear la conexion" -> Siguiente
+6. Marca todas las opciones (Dominio, Privada, Publica) -> Siguiente
+7. Ponle un nombre como "Bloquear FC26 Internet" -> Finalizar
+
+Para desbloquear: Elimina o desactiva esa regla.
+
+VIA HOSTS:
+1. Abre el Bloc de notas como Administrador
+2. Abre el archivo: C:\Windows\System32\drivers\etc\hosts
+3. Agrega al final:
+   127.0.0.1 ea.com
+   127.0.0.1 easports.com
+   127.0.0.1 origin.com
+   (y otros dominios de EA que necesites bloquear)
+4. Guarda el archivo
+
+Para desbloquear: Elimina esas lineas del archivo hosts.
+
+══════════════════════════════════════════════════════════════════════
+   JUGAR EN MULTIPLES PCs (MISMA CUENTA)
+══════════════════════════════════════════════════════════════════════
+
+Si planeas jugar en 2 computadoras con la misma cuenta, lee esto:
+
+COMO FUNCIONA EL SISTEMA DE GUARDADOS:
+--------------------------------------
+- El Modo Carrera se guarda LOCALMENTE en cada PC
+- Ubicacion tipica: Documents\EA SPORTS FC 26\settings\
+- Cuando te conectas a internet, el juego SINCRONIZA con los servidores
+- Si hay datos diferentes en la nube, puede haber CONFLICTOS
+
+ESCENARIO PROBLEMATICO:
+-----------------------
+Tu (PC offline) + Amigo (PC online, misma cuenta) = CONFLICTO
+
+1. Tu amigo juega online -> Su progreso se sube a la nube de EA
+2. Tu juegas offline -> Tu progreso queda solo en tu PC
+3. Cuando reconectes -> Los datos de la nube pueden SOBRESCRIBIR los tuyos
+
+SOLUCION - USAR BACKUP:
+-----------------------
+ANTES de reconectar a internet:
+1. Ejecuta "Backup_Guardados_FC26.bat"
+2. Selecciona opcion [1] para crear backup
+3. Tus guardados quedaran respaldados
+
+SI PIERDES TUS GUARDADOS:
+1. Ejecuta "Backup_Guardados_FC26.bat"
+2. Selecciona opcion [2] para restaurar
+3. Elige el backup que quieras recuperar
+
+RECOMENDACIONES PARA 2 PCs:
+---------------------------
+[!] Cada PC deberia tener SU PROPIO Modo Carrera separado
+[!] NO intentes continuar el mismo Modo Carrera en ambas PCs
+[!] Haz backup SIEMPRE antes de conectar a internet
+[!] Si ambos quieren jugar el mismo Modo Carrera, usen una USB
+    para transferir los archivos de guardado manualmente
+
+UBICACION DE LOS GUARDADOS:
+---------------------------
+Ruta tipica (puede variar):
+  C:\Users\TU_USUARIO\Documents\EA SPORTS FC 26\settings\
+
+Si usas OneDrive:
+  C:\Users\TU_USUARIO\OneDrive\Documents\EA SPORTS FC 26\settings\
+  C:\Users\TU_USUARIO\OneDrive\Documentos\EA SPORTS FC 26\settings\
+
+══════════════════════════════════════════════════════════════════════
+   NOTAS ADICIONALES
+══════════════════════════════════════════════════════════════════════
+
+- Este bloqueo es local y solo afecta tu PC
+- Si el juego muestra mensajes de "sin conexion", ignoralos y 
+  continua jugando en modo offline
+- Algunos modos de juego requieren conexion y no funcionaran
+- El Live Editor y mods offline seguiran funcionando normalmente
+
+══════════════════════════════════════════════════════════════════════
