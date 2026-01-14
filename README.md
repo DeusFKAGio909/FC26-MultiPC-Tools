@@ -179,4 +179,4 @@ Desarrollado para mejorar la experiencia de juego con **LTA MOD** y facilitar el
 
 ---
 
-*FC26 MultiPC Tools - Juega en todos tus PCs sin perder el progreso* 🎮
+*FC26 MultiPC Tools - Juega en todos tus PCs al mismo tiempo sin perder el progreso ningun sistema* 🎮
