@@ -168,14 +168,29 @@ Si tienes **2 o más PCs** con FC26:
 
 ## 📝 Licencia
 
-Herramientas de código abierto para la comunidad de FC26.
-Úsalas libremente y compártelas con otros jugadores.
+Este proyecto está bajo la **licencia MIT (Non-Commercial)**.
+
+### ⚖️ Términos de Uso
+
+- ✅ **Uso personal y educativo**: Libre y gratuito
+- ✅ **Modificación**: Puedes modificar el código para tus necesidades
+- ✅ **Distribución**: Puedes compartir estas herramientas con otros
+- ✅ **Atribución**: Se agradece mencionar el autor original
+- ❌ **Uso comercial PROHIBIDO**: No se permite vender, comercializar o usar en productos comerciales
+
+### ❤️ Hecho con amor para la comunidad
+
+Estas herramientas fueron desarrolladas **con amor y dedicación** para la comunidad de mods de FC26. Son completamente **gratuitas y de código abierto** para ayudar a todos los jugadores a disfrutar del juego en múltiples PCs sin perder su progreso.
+
+**No es un producto comercial** - Es un regalo para la comunidad que disfruta de mods como **LTA MOD** y otros mods de FIFA Mod Manager.
 
 ---
 
 ## 🤝 Créditos
 
-Desarrollado para mejorar la experiencia de juego con **LTA MOD** y facilitar el uso de FC26 en múltiples dispositivos.
+Desarrollado **con amor** para mejorar la experiencia de juego con **LTA MOD** y facilitar el uso de FC26 en múltiples dispositivos.
+
+**Para la comunidad, por la comunidad.** ❤️
 
 ---
 
