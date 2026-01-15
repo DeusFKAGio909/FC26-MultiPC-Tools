@@ -46,12 +46,12 @@ echo.
 :: Usar PowerShell para eliminar las lineas de bloqueo de forma robusta
 PowerShell -ExecutionPolicy Bypass -Command ^
     "$hostsPath = '%HOSTS_FILE%'; " ^
-    "$content = Get-Content $hostsPath -Raw; " ^
+    "$encoding = [System.Text.Encoding]::ASCII; " ^
+    "$content = [System.IO.File]::ReadAllText($hostsPath, $encoding); " ^
     "$pattern = '(?s)\r?\n?# === BLOQUEO FC26 ===.*?# === FIN BLOQUEO FC26 ===\r?\n?'; " ^
     "$newContent = $content -replace $pattern, ''; " ^
-    "$newContent = $newContent.TrimEnd(); " ^
-    "Set-Content -Path $hostsPath -Value $newContent -NoNewline; " ^
-    "Add-Content -Path $hostsPath -Value ''"
+    "$newContent = $newContent.TrimEnd() + [Environment]::NewLine; " ^
+    "[System.IO.File]::WriteAllText($hostsPath, $newContent, $encoding)"
 
 if %errorLevel% equ 0 (
     :: Limpiar cache de DNS
